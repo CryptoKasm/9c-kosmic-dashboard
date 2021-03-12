@@ -1,6 +1,0 @@
-[submodule "module.Node"]
-	path = module.Node
-	url = https://github.com/CryptoKasm/kosmic-module-node.git
-[submodule "module.Home"]
-	path = module.Home
-	url = https://github.com/CryptoKasm/kosmic-module-home.git
