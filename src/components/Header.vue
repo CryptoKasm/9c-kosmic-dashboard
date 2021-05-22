@@ -40,13 +40,13 @@
             <p class="text-search">{{ ncgAmount }} NCG</p>
           </div>
           <div class="ncg-actions">
-            <div class="button">
+            <div class="ncgButton">
               <p class="subtext">Buy</p>
             </div>
-            <div class="button">
+            <div class="ncgButton">
               <p class="subtext">Sell</p>
             </div>
-            <div class="button">
+            <div class="ncgButton">
               <p class="subtext">Transfer</p>
             </div>
           </div>
@@ -58,12 +58,10 @@
             <p class="text-publicid-tag">Public ID</p>
           </div>
           <div class="publicid-number">
-            <p class="text-publicid-number">{{ publicID }}</p>
-            <div class="icon-arrow">
-              <div class="icon-base">
-                <fa icon="chevron-down" class="fa-sm" />
-              </div>
-            </div>
+            <p id="item-to-copy" class="text-publicid-number">{{ publicID }}</p>
+            <button :onClick="copyToClipboard" class="copy-button">
+              <fa icon="copy" class="fa-sm" />
+            </button>
           </div>
         </div>
       </div>
@@ -91,6 +89,20 @@ export default {
       publicID: "0xf5eB9FCb54",
       notifyCount: "21",
     };
+  },
+  methods: {
+    copyToClipboard() {
+      const str = document.getElementById("item-to-copy").innerText;
+      const el = document.createElement("textarea");
+      el.value = str;
+      el.setAttribute("readonly", "");
+      el.style.position = "absolute";
+      el.style.left = "-9999px";
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+    },
   },
 };
 </script>
@@ -276,7 +288,7 @@ export default {
   color: $grayscale-off-white;
   @include DesktopText-XX-Small;
 }
-.button {
+.ncgButton {
   width: 86px;
   height: 34px;
   flex-grow: 0;
@@ -345,16 +357,11 @@ export default {
   color: $grayscale-off-white;
   @include DesktopText-XX-Small;
 }
-.icon-arrow {
-  padding: 7px 6px;
-  display: flex;
-  align-items: center;
-  width: 12px;
-  height: 10px;
+.copy-button {
+  color: $grayscale-off-white;
 }
-.arrow-down-2 {
-  width: 12px;
-  height: 10px;
+.copy-button:hover {
+  color: rgba(17, 168, 253, 1);
 }
 .icon-frame {
   display: flex;
