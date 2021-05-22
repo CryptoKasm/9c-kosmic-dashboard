@@ -1,30 +1,72 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="autoLayout">
+    <SideNav />
+    <div id="mainWrapper">
+      <Header />
+      <Content />
+    </div>
   </div>
-  <router-view />
 </template>
 
+<script>
+import SideNav from "@/components/SideNav.vue";
+import Header from "@/components/Header.vue";
+import Content from "@/components/Content.vue";
+
+export default {
+  name: "App",
+  components: {
+    SideNav,
+    Header,
+    Content,
+  },
+};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import "./assets/scss/default-theme.scss";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-#nav {
-  padding: 30px;
+html {
+  background-color: rgba(24, 28, 43, 1);
+  background-image: url("./assets/images/backgrounds/world-5.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: hue-rotate(160deg);
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+#app {
+  min-height: 100vh;
+  filter: hue-rotate(-160deg);
+  background-color: rgba(24, 28, 43, 0.5);
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#autoLayout {
+  min-height: 100vh; //Temp fix
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 2px;
+  padding: 0;
+}
+
+#mainWrapper {
+  align-self: stretch;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 2px;
+  padding: 0;
+  min-height: 100vh;
 }
 </style>

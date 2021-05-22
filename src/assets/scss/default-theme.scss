@@ -1,0 +1,170 @@
+$dark-section-bg: #13131e;
+$dark-button-component: #212535;
+$dark-main-ui: #1a1c2c;
+$dark-secondary-component: #191c2c;
+$grayscale-off-white: #fcfcfc;
+$grayscale-body: #4e4b66;
+$grayscale-title-active: #14142b;
+$grayscale-label: #6e7191;
+$grayscale-sub-icons: rgba(242, 242, 242, 0.9);
+$grayscale-input-background: #eff0f6;
+$grayscale-background: #f7f7fc;
+
+@font-face {
+  font-family: Aller;
+  src: local(Aller-Regular), url(~@/assets/fonts/Aller.woff2) format('woff2'),
+    url(~@/assets/fonts/Aller.woff) format('woff'),
+    url(~@/assets/fonts/Aller.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: Aller;
+  src: local(Aller-Bold), url(~@/assets/fonts/Aller-Bold.woff2) format('woff2'),
+    url(~@/assets/fonts/Aller-Bold.woff) format('woff'),
+    url(~@/assets/fonts/Aller-Bold.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+@mixin DesktopDisplay-Large-Bold {
+  font-family: Aller;
+  font-size: 64px;
+  font-weight: bold;
+  line-height: 1.03;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+@mixin DesktopDisplay-Large {
+  font-family: Aller;
+  font-size: 64px;
+  line-height: 1.03;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+@mixin DesktopDisplay-Medium-Bold {
+  font-family: Aller;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1.04;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+@mixin DesktopDisplay-Medium {
+  font-family: Aller;
+  font-size: 48px;
+  line-height: 1.04;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+@mixin DesktopDisplay-Small-Bold {
+  font-family: Aller;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.06;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+@mixin DesktopDisplay-Small {
+  font-family: Aller;
+  font-size: 32px;
+  line-height: 1.06;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+@mixin DesktopLink-Large {
+  font-family: Aller;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.58;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+}
+
+@mixin DesktopText-Large {
+  font-family: Aller;
+  font-size: 24px;
+  line-height: 1.58;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+}
+
+@mixin DesktopLink-Medium {
+  font-family: Aller;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.89;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+}
+
+@mixin DesktopText-Medium {
+  font-family: Aller;
+  font-size: 18px;
+  line-height: 1.89;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+}
+
+@mixin DesktopLink-Small {
+  font-family: Aller;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.75;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+}
+
+@mixin DesktopText-Small {
+  font-family: Aller;
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+}
+
+@mixin DesktopText-X-Small {
+  font-family: Aller;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.71;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+}
+
+@mixin DesktopLink-X-Small {
+  font-family: Aller;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.71;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+}
+
+@mixin DesktopLink-XX-Small {
+  font-family: Aller;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 2;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+}
+
+@mixin DesktopText-XX-Small {
+  font-family: Aller;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+}
