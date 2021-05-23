@@ -145,7 +145,6 @@ export default {
   methods: {
     toggleSubMenu() {
       this.showSubMenu = !this.showSubMenu;
-      console.log("heelo");
     },
   },
 };
