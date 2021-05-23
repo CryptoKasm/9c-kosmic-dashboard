@@ -56,20 +56,27 @@
     </div>
     <div class="sub-menu-frame">
       <div class="sub-menu">
-        <div class="menu-wrapper">
+        <button :onclick="toggleSubMenu" class="menu-wrapper">
           <div class="icon-base">
             <fa icon="th-large" class="fa-md" />
           </div>
-        </div>
-        <div class="icon-wrapper">
-          <div class="icon-base">
-            <fa icon="calculator" class="fa-xs" />
-          </div>
-        </div>
-        <div class="icon-wrapper">
-          <div class="icon-base">
-            <fa icon="stopwatch" class="fa-xs" />
-          </div>
+        </button>
+        <!-- Need to set 2 classes: 1 for active 1 for not to apply transition -->
+        <div class="icon-sub-frame">
+          <transition name="expandSubMenu">
+            <button v-if="showSubMenu" class="icon-sub-wrapper">
+              <div class="icon-base">
+                <fa icon="calculator" class="fa-xs" />
+              </div>
+            </button>
+          </transition>
+          <transition name="expandSubMenu">
+            <button v-show="showSubMenu" class="icon-sub-wrapper">
+              <div class="icon-base">
+                <fa icon="stopwatch" class="fa-xs" />
+              </div>
+            </button>
+          </transition>
         </div>
       </div>
     </div>
@@ -79,16 +86,16 @@
       </div>
       <div class="power-frame">
         <div class="sub-menu-actions">
-          <div class="icon-sub-wrapper">
+          <button class="icon-wrapper">
             <div class="icon-base">
               <fa icon="unlock" class="fa-xs" />
             </div>
-          </div>
-          <div class="icon-sub-wrapper">
+          </button>
+          <button class="icon-wrapper">
             <div class="icon-base">
               <fa icon="sync" class="fa-xs" />
             </div>
-          </div>
+          </button>
         </div>
       </div>
       <div class="spacer-frame">
@@ -132,7 +139,14 @@ export default {
       characterHover: false,
       marketplaceHover: false,
       nodeHover: false,
+      showSubMenu: false,
     };
+  },
+  methods: {
+    toggleSubMenu() {
+      this.showSubMenu = !this.showSubMenu;
+      console.log("heelo");
+    },
   },
 };
 </script>
@@ -173,8 +187,12 @@ export default {
   position: relative;
 }
 
-.logo {
-  height: 100%;
+.rocket-logo:hover {
+  filter: brightness(105%);
+}
+
+.rocket-logo:active {
+  filter: brightness(120%);
 }
 
 .top-frame {
@@ -228,11 +246,19 @@ export default {
 }
 
 .button-wrapper a:hover {
-  filter: brightness(150%);
+  filter: brightness(120%);
 }
 
 .button-wrapper a.router-link-exact-active {
   background-image: linear-gradient(-45deg, #1b4bcf, #6db0ff);
+}
+
+.button-wrapper a.router-link-exact-active:hover {
+  filter: brightness(105%);
+}
+
+.button-wrapper a.router-link-exact-active:active {
+  filter: brightness(80%);
 }
 
 .icon-base {
@@ -283,7 +309,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 0;
+  gap: 0px;
   padding: 2px;
   border-radius: 15px;
   background-color: $dark-button-component;
@@ -307,7 +333,24 @@ export default {
   background-image: linear-gradient(-45deg, #ed2e7e, #ff9e89);
 }
 
-.icon-wrapper {
+.menu-wrapper:hover {
+  filter: brightness(105%);
+}
+
+.menu-wrapper:active {
+  filter: brightness(80%);
+}
+
+.icon-sub-frame {
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-sub-wrapper {
   overflow: hidden;
   border-radius: 15px;
   display: flex;
@@ -315,9 +358,18 @@ export default {
   justify-content: center;
   height: 44px;
   width: 44px;
+  background-color: $dark-button-component;
 }
 
-.icon-sub-wrapper {
+.icon-sub-wrapper:hover {
+  filter: brightness(120%);
+}
+
+.icon-sub-wrapper:active {
+  filter: brightness(100%);
+}
+
+.icon-wrapper {
   width: 44px;
   height: 44px;
   flex-grow: 0;
@@ -328,6 +380,15 @@ export default {
   gap: 0;
   padding: 0;
   border-radius: 15px;
+  background-color: $dark-button-component;
+}
+
+.icon-wrapper:hover {
+  filter: brightness(120%);
+}
+
+.icon-wrapper:active {
+  filter: brightness(100%);
 }
 
 .icon-sub-menu {
@@ -387,4 +448,47 @@ export default {
   gap: 12px;
   padding: 8px 0 0;
 }
+
+// Transitions
+.expandSubMenu-enter-from {
+  opacity: 0;
+  margin-top: -46px;
+}
+
+.expandSubMenu-enter-to {
+  opacity: 1;
+  margin-top: 0px;
+  z-index: -1;
+}
+
+.expandSubMenu-enter-active {
+  transition: 1s ease-in-out;
+}
+
+.expandSubMenu-leave-from {
+  opacity: 1;
+  margin-top: 0px;
+}
+
+.expandSubMenu-leave-to {
+  opacity: 0;
+  margin-top: -46px;
+  z-index: -1;
+}
+
+.expandSubMenu-leave-active {
+  transition: 1s ease-in-out;
+}
+
+// .fade-enter-active,
+// .fade-leave-active {
+//   transition: 2.5s ease-in-out;
+// }
+// .fade-enter-to {
+//   opacity: 0;
+// }
+
+// .fade-leave-to {
+//   opacity: 0;
+// }
 </style>

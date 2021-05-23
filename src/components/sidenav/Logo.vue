@@ -57,6 +57,10 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/scss/default-theme.scss";
 
+.logo {
+  height: 100%;
+}
+
 .cls-1 {
   isolation: isolate;
 }

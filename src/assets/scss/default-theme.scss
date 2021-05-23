@@ -1,14 +1,14 @@
-$dark-section-bg: #13131e;
-$dark-button-component: #212535;
-$dark-main-ui: #1a1c2c;
-$dark-secondary-component: #191c2c;
-$grayscale-off-white: #fcfcfc;
-$grayscale-body: #4e4b66;
-$grayscale-title-active: #14142b;
-$grayscale-label: #6e7191;
+$dark-section-bg: rgba(19, 19, 30, 0.9);
+$dark-button-component: rgba(33, 37, 53, 1);
+$dark-main-ui: rgba(26, 28, 44, 0.9);
+$dark-secondary-component: rgba(25, 28, 44, 1);
+$grayscale-off-white: rgba(252, 252, 252, 1);
+$grayscale-body: rgba(78, 75, 102, 1);
+$grayscale-title-active: rgba(20, 20, 43, 1);
+$grayscale-label: rgba(110, 113, 145, 1);
 $grayscale-sub-icons: rgba(242, 242, 242, 0.9);
-$grayscale-input-background: #eff0f6;
-$grayscale-background: #f7f7fc;
+$grayscale-input-background: rgba(239, 240, 246, 1);
+$grayscale-background: rgba(247, 247, 252, 1);
 
 @font-face {
   font-family: Aller;
@@ -170,6 +170,7 @@ $grayscale-background: #f7f7fc;
 }
 
 button,
+input,
 input[type='submit'],
 input[type='reset'] {
   background: none;
