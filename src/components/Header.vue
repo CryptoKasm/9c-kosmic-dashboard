@@ -116,7 +116,7 @@ export default {
 
 .header {
   width: 100%;
-  height: 80px;
+  height: 64px;
   align-self: stretch;
   flex-grow: 0;
   display: flex;

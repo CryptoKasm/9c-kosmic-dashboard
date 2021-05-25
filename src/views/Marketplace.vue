@@ -1,5 +1,7 @@
 <template>
-  <h3>Marketplace</h3>
+  <div class="marketplace">
+    <h3>Marketplace</h3>
+  </div>
 </template>
 
 <script>
@@ -11,6 +13,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/scss/default-theme.scss";
+
+.marketplace {
+  width: 1300px;
+}
 
 h3 {
   flex-grow: 0;

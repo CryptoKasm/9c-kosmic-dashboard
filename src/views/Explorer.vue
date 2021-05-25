@@ -1,5 +1,7 @@
 <template>
-  <h3>Explorer</h3>
+  <div class="explorer">
+    <h3>Explorer</h3>
+  </div>
 </template>
 
 <script>
@@ -11,7 +13,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/scss/default-theme.scss";
-
+.explorer {
+  width: 1300px;
+}
 h3 {
   flex-grow: 0;
   display: flex;

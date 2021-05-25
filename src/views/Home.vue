@@ -1,5 +1,6 @@
 <template>
   <div class="content-frame">
+    <!-- News Articles -->
     <div class="news-articles">
       <!-- Need to add for loop, for each news article in rss feed -->
       <NewsArticle
@@ -36,21 +37,76 @@
         We also worked on a number of long-term features that are not yet ready for deployment."
       />
     </div>
-    <div class="leaderboards"></div>
+    <!-- Leaderboards -->
+    <div class="leaderboards">
+      <WhaleLeaderboard />
+      <XPLeaderboard />
+    </div>
+    <!-- Network Cards -->
     <div class="network-cards">
-      <div class="row-frame"></div>
-      <div class="row-frame"></div>
+      <div class="row-frame">
+        <NetworkCard
+          showIcon="tachometer-alt"
+          titleText="Average Difficulty"
+          dataCallback="averageDifficulty"
+          dataText="46,035,373"
+        />
+        <NetworkCard
+          showIcon="clock"
+          titleText="Average Block Time"
+          dataCallback="averageDifficulty"
+        />
+        <NetworkCard
+          showIcon="tachometer-alt"
+          titleText="Daily Transactions"
+          dataCallback="averageDifficulty"
+        />
+        <NetworkCard
+          showIcon="tachometer-alt"
+          titleText="Active Player Addresses"
+          dataCallback="averageDifficulty"
+        />
+      </div>
+      <div class="row-frame">
+        <NetworkCard
+          showIcon="tachometer-alt"
+          titleText="Total NCG Created"
+          dataCallback="averageDifficulty"
+          dataText="46,035,373"
+        />
+        <NetworkCard
+          showIcon="tachometer-alt"
+          titleText="Total Blocks"
+          dataCallback="averageDifficulty"
+        />
+        <NetworkCard
+          showIcon="tachometer-alt"
+          titleText="Total Transactions"
+          dataCallback="averageDifficulty"
+        />
+        <NetworkCard
+          showIcon="tachometer-alt"
+          titleText="Total Player Addresses"
+          dataCallback="averageDifficulty"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import NewsArticle from "@/components/home/NewsArticle.vue";
+import WhaleLeaderboard from "@/components/home/WhaleLeaderboard.vue";
+import XPLeaderboard from "@/components/home/XPLeaderboard.vue";
+import NetworkCard from "@/components/home/NetworkCard.vue";
 
 export default {
   name: "Home",
   components: {
     NewsArticle,
+    WhaleLeaderboard,
+    XPLeaderboard,
+    NetworkCard,
   },
 };
 </script>
@@ -66,8 +122,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  gap: 32px;
-  padding: 8px 0 24px;
+  gap: 24px;
   margin: 0 auto;
 }
 
@@ -85,7 +140,7 @@ export default {
 
 .leaderboards {
   align-self: stretch;
-  flex-grow: 1;
+  flex-grow: 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -97,7 +152,7 @@ export default {
 
 .network-cards {
   align-self: stretch;
-  flex-grow: 1;
+  flex-grow: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

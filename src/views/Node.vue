@@ -1,5 +1,7 @@
 <template>
-  <h3>Node</h3>
+  <div class="node">
+    <h3>Node</h3>
+  </div>
 </template>
 
 <script>
@@ -11,6 +13,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/scss/default-theme.scss";
+
+.node {
+  width: 1300px;
+}
 
 h3 {
   flex-grow: 0;

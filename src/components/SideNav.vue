@@ -167,7 +167,7 @@ export default {
 }
 
 .logo-frame {
-  height: 80px;
+  height: 64px;
   align-self: stretch;
   flex-grow: 0;
   display: flex;
@@ -180,7 +180,6 @@ export default {
 }
 
 .rocket-logo {
-  overflow: hidden;
   height: 48px;
   width: 26.86px;
   position: relative;
