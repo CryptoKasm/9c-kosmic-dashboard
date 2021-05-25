@@ -1,6 +1,6 @@
 <template>
-  <a :href="articleURL" target="_blank" class="article-wrapper">
-    <div class="article">
+  <a :href="articleURL" target="_blank" class="article">
+    <div class="article-wrapper">
       <div class="image-shape">
         <img alt="" class="image" :src="imageSrc" />
       </div>
@@ -37,7 +37,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/default-theme.scss";
 
-.article-wrapper {
+.article {
   width: 424px;
   height: 230px;
   flex-grow: 0;
@@ -53,19 +53,19 @@ export default {
   text-decoration: none;
 }
 
-.article-wrapper:first-child {
+.article:first-child {
   margin-top: 0 !important;
   margin-left: 0 !important;
 }
 
-.article-wrapper:last-child {
+.article:last-child {
   margin-bottom: 0 !important;
   margin-right: 0 !important;
 }
 
-.article-wrapper:hover {
+.article:hover {
   background: linear-gradient(
-      -90deg,
+      90deg,
       $dark-button-component,
       $dark-button-component
     ),
@@ -74,11 +74,11 @@ export default {
   background-clip: content-box, border-box;
 }
 
-.article-wrapper:active {
-  filter: brightness(140%);
+.article:active {
+  filter: brightness(120%);
 }
 
-.article {
+.article-wrapper {
   flex-grow: 0;
   display: flex;
   flex-direction: row;
@@ -88,7 +88,6 @@ export default {
   padding: 12px 16px 12px 12px;
   border-radius: 15px;
   margin: 0 auto;
-  text-decoration: none;
 }
 
 .image-shape {
