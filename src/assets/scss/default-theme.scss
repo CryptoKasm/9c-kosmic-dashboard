@@ -79,7 +79,14 @@ $grayscale-background: rgba(247, 247, 252, 1);
   font-family: Aller;
   font-size: 32px;
   line-height: 1.06;
-  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+@mixin DesktopDisplay-X-Small-Bold {
+  font-family: Aller;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.06;
   text-decoration: none;
 }
 
