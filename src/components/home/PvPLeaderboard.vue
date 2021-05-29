@@ -2,7 +2,7 @@
   <div class="leaderboard-frame">
     <div class="header">
       <div class="left">
-        <p class="title-text">Most Experienced Players</p>
+        <p class="title-text">Top PvP Players</p>
       </div>
       <div class="right">
         <div class="category-text">
@@ -19,7 +19,7 @@
         <div
           class="entries-list"
           v-for="(account, key) in filteredAccounts"
-          :value="account.agentAddress"
+          :value="account.avatarAddress"
           :key="key++"
         >
           <LeaderboardEntry
@@ -27,7 +27,7 @@
             :accountCharacter="account.avatarName"
             accountCharacterImg="default"
             :accountRank="key"
-            :accountXP="account.exp"
+            :accountScore="account.score"
           />
         </div>
       </span>
@@ -42,32 +42,33 @@ import { gql } from "@apollo/client";
 import LeaderboardEntry from "@/components/home/LeaderboardEntry.vue";
 
 export default {
-  name: "XPLeaderboard",
+  name: "PvPLeaderboard",
   components: {
     LeaderboardEntry,
   },
   setup() {
-    const XPLeader = gql`
-      query XPLeader {
+    const PvPLeader = gql`
+      query PvPLeader {
         stateQuery {
-          rankingMap(index: 0) {
+          weeklyArena(index: 0) {
             address
-            rankingInfos {
+            ended
+            orderedArenaInfos {
               agentAddress
               avatarName
               avatarAddress
-              exp
+              score
             }
           }
         }
       }
     `;
 
-    const { result, loading, error } = useQuery(XPLeader);
+    const { result, loading, error } = useQuery(PvPLeader);
     const accounts = useResult(
       result,
       null,
-      (data) => data.stateQuery.rankingMap.rankingInfos
+      (data) => data.stateQuery.weeklyArena.orderedArenaInfos
     );
 
     console.log(accounts);

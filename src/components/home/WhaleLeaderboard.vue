@@ -43,11 +43,11 @@ export default {
       accounts: [
         {
           PublicID: "0xf5eB9FCbe5D2A658A87b517511f14698ADd28Efa",
-          Characters: [ "TripLo #7r40", "Fuxwithme #8f9e", "EMPTY" ],
+          Characters: ["TripLo #7r40", "Fuxwithme #8f9e", "EMPTY"],
           ProfileImg:
             "https://static.overlay-tech.com/assets/9bec0aad-cae7-4730-831e-577cff246de6.png",
-          Rank: "01",
-          NCG: "340,504",
+          Rank: 1,
+          NCG: 340504,
         },
       ],
     };

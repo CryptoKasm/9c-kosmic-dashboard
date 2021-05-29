@@ -39,56 +39,16 @@
     </div>
     <!-- Leaderboards -->
     <div class="leaderboards">
-      <WhaleLeaderboard />
+      <PvPLeaderboard />
       <XPLeaderboard />
     </div>
     <!-- Network Cards -->
     <div class="network-cards">
       <div class="row-frame">
-        <NetworkCard
-          showIcon="tachometer-alt"
-          titleText="Average Difficulty"
-          dataCallback="averageDifficulty"
-          dataText="46,035,373"
-        />
-        <NetworkCard
-          showIcon="clock"
-          titleText="Average Block Time"
-          dataCallback="averageDifficulty"
-        />
-        <NetworkCard
-          showIcon="tachometer-alt"
-          titleText="Daily Transactions"
-          dataCallback="averageDifficulty"
-        />
-        <NetworkCard
-          showIcon="tachometer-alt"
-          titleText="Active Player Addresses"
-          dataCallback="averageDifficulty"
-        />
+        <AverageBlockDifficulty />
       </div>
       <div class="row-frame">
-        <NetworkCard
-          showIcon="tachometer-alt"
-          titleText="Total NCG Created"
-          dataCallback="averageDifficulty"
-          dataText="46,035,373"
-        />
-        <NetworkCard
-          showIcon="tachometer-alt"
-          titleText="Total Blocks"
-          dataCallback="averageDifficulty"
-        />
-        <NetworkCard
-          showIcon="tachometer-alt"
-          titleText="Total Transactions"
-          dataCallback="averageDifficulty"
-        />
-        <NetworkCard
-          showIcon="tachometer-alt"
-          titleText="Total Player Addresses"
-          dataCallback="averageDifficulty"
-        />
+
       </div>
     </div>
   </div>
@@ -96,17 +56,17 @@
 
 <script>
 import NewsArticle from "@/components/home/NewsArticle.vue";
-import WhaleLeaderboard from "@/components/home/WhaleLeaderboard.vue";
+import PvPLeaderboard from "@/components/home/PvPLeaderboard.vue";
 import XPLeaderboard from "@/components/home/XPLeaderboard.vue";
-import NetworkCard from "@/components/home/NetworkCard.vue";
+import AverageBlockDifficulty from "@/components/home/networkCards/AverageBlockDifficulty.vue";
 
 export default {
   name: "Home",
   components: {
     NewsArticle,
-    WhaleLeaderboard,
+    PvPLeaderboard,
     XPLeaderboard,
-    NetworkCard,
+    AverageBlockDifficulty,
   },
 };
 </script>

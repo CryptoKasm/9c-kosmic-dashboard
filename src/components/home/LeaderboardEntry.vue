@@ -16,13 +16,8 @@
           <p class="account-text">{{ accountPublicID }}</p>
         </div>
         <div class="character-field">
-          <div
-            class="character-name"
-            v-for="characterName in accountCharacters"
-            :value="characterName.value"
-            :key="characterName.value"
-          >
-            <p class="name-text">{{ characterName }}</p>
+          <div class="character-name">
+            <span class="name-text" v-html="accountCharacter"></span>
           </div>
           <!-- <div class="character-name">
             <p class="name-text">TripLo #7df3</p>
@@ -42,6 +37,9 @@
 
           <!-- Query: account total xp -->
           <p v-if="accountXP" class="data-text">{{ accountXP }} XP</p>
+
+          <!-- Query: account pvp score -->
+          <p v-if="accountScore" class="data-text">{{ accountScore }} PvP</p>
         </div>
       </div>
     </div>
@@ -53,11 +51,18 @@ export default {
   name: "Leaderboard-Entry",
   props: {
     accountPublicID: String,
-    accountCharacters: Array,
+    accountCharacter: String,
     accountRank: Number,
-    accountProfileImg: String,
     accountNCG: Number,
     accountXP: Number,
+    accountScore: Number,
+  },
+  data() {
+    return {
+      accountProfileImg:
+        "https://static.overlay-tech.com/assets/9bec0aad-cae7-4730-831e-577cff246de6.png",
+      accountProfileImgAlt: "Default Skin",
+    };
   },
 };
 </script>
@@ -101,10 +106,12 @@ export default {
 }
 
 .rank-field {
+  min-width: 56px;
   padding: 0 12px 0 12px;
   display: flex;
   align-items: center;
   align-self: stretch;
+  text-align: right;
 }
 
 .rank-text {

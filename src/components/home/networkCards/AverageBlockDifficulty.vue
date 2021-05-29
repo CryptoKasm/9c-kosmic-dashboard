@@ -15,13 +15,53 @@
 </template>
 
 <script>
+import { computed } from "vue";
+import { useQuery, useResult } from "@vue/apollo-composable";
+import { gql } from "@apollo/client";
+
 export default {
-  name: "NetworkCard",
-  props: {
-    showIcon: String,
-    titleText: String,
-    dataCallback: String, //Function
-    dataText: String,
+  name: "AverageBlockDifficulty",
+  setup() {
+    const showIcon = "tachometer-alt";
+    const titleText = "Average Block Difficulty";
+
+    // Query set amount of block difficulty and use to create an average
+    const query = gql`
+      query averageDifficulty {
+        chainQuery {
+          blockQuery {
+            blocks(limit: 20, desc: true) {
+              difficulty
+            }
+          }
+        }
+      }
+    `;
+
+    const { result, loading, error } = useQuery(query);
+    const blocks = useResult(
+      result,
+      null,
+      (data) => data.chainQuery.blockQuery.blocks
+    );
+    // const blocks = result.value;
+
+    console.log(result);
+    console.log(blocks);
+
+    const AverageBlockDiffictulty = computed(() => {
+      if (this.blocks.length === 0) {
+        return 0;
+      }
+      return (
+        this.blocks.difficulty.reduce((sum, v) => sum + v.score, 0) / this.blocks.length
+      );
+    });
+
+    console.log(AverageBlockDiffictulty);
+    // const dataText = "hi";
+
+    return { showIcon, titleText, loading, error };
   },
 };
 </script>

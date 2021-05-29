@@ -85,14 +85,29 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import { useQuery, useResult } from "@vue/apollo-composable";
+import { gql } from "@apollo/client";
+
 export default {
   name: "Header",
-  data() {
-    return {
-      ncgAmount: "10,504",
-      publicID: "0xf5eB9FCb54",
-      notifyCount: "21",
-    };
+  setup() {
+    const publicID = ref("0xf5eB9FCbe5D2A658A87b517511f14698ADd28Efa");
+    // const ncgAmount = ref("10,504");
+    const notifyCount = ref("21");
+    
+    const AccountData = gql`
+      query checkNCGBalance {
+        goldBalance(address: "0xf5eB9FCbe5D2A658A87b517511f14698ADd28Efa")
+      }
+    `;
+
+    const { result } = useQuery(AccountData);
+    const ncgAmount = useResult(result, null, (data) => data.goldBalance);
+
+    console.log(ncgAmount);
+
+    return { publicID, ncgAmount, notifyCount };
   },
   methods: {
     copyToClipboard() {
@@ -381,21 +396,23 @@ export default {
 }
 
 .publicid-number {
+  max-width: 200px;
   flex-grow: 0;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   gap: 16px;
   padding: 0 20px 0 12px;
+  overflow: hidden;
 }
 
 .text-publicid-number {
   height: 24px;
   flex-grow: 0;
-  text-align: right;
+  text-align: left;
   color: $grayscale-off-white;
   @include DesktopText-XX-Small;
+  overflow: hidden;
 }
 
 .copy-button {
