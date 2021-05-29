@@ -1,0 +1,3 @@
+query checkNCGBalance {
+  goldBalance(address:"0xf5eB9FCbe5D2A658A87b517511f14698ADd28Efa")
+}
