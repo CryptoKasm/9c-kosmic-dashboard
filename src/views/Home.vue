@@ -45,7 +45,7 @@
     <!-- Network Cards -->
     <div class="network-cards">
       <div class="row-frame">
-        <AverageBlockDifficulty />
+        <!-- <AverageBlockDifficulty /> -->
       </div>
       <div class="row-frame">
 
@@ -58,7 +58,7 @@
 import NewsArticle from "@/components/home/NewsArticle.vue";
 import PvPLeaderboard from "@/components/home/PvPLeaderboard.vue";
 import XPLeaderboard from "@/components/home/XPLeaderboard.vue";
-import AverageBlockDifficulty from "@/components/home/networkCards/AverageBlockDifficulty.vue";
+// import AverageBlockDifficulty from "@/components/home/networkCards/AverageBlockDifficulty.vue";
 
 export default {
   name: "Home",
@@ -66,7 +66,7 @@ export default {
     NewsArticle,
     PvPLeaderboard,
     XPLeaderboard,
-    AverageBlockDifficulty,
+    // AverageBlockDifficulty,
   },
 };
 </script>
