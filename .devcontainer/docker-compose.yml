@@ -9,6 +9,7 @@ services:
       - DEBUG=1
       - TRACE=1
       - DEV_MODE=true
+      - PRIVATE_KEY=DEMO
   app:
     build:
       context: .
