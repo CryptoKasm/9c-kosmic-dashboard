@@ -1,7 +1,6 @@
 # Milestone 1 - Overview
 
 ## Kosmic Dashboard
----
 - Purchased a designer to create majority of the pages I needed
   - I did have ALOT of complications and didnt even start getting any work until well over a month of order time. Also designs are on a single layer so I'm having to recreate each page from scratch so that I can output it properly for coding. (Takes roughly a week per page to recreate it, the way i need it.)
 
@@ -50,8 +49,13 @@
 <br>
 
 ## Swarm Manager
----
 - Ive put a lot of time into developing this new project, which combines the 9c-swarm-miner and the 9c-node-manager into a single project that will actively be improved on and integrated more closely into the dashboard. This will allow more control with the node/miner without needing coding knowledge as you'll be able to configure and control it from within a panel on the dashboard.
 - Documentation: https://github.com/CryptoKasm/9c-swarm-manager
 - I have yet to release it publically because I'd like to get the hardware to do extensive development before having to deal with questions when its still in progress.
 
+<br>
+
+## Requesting Funds To
+- Hire an exerienced coder to create a login/wallet system for Kosmic Dashboard
+- Need better hardware to advance development on the node/miner end.
+- Public Development Server
