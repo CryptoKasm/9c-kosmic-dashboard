@@ -3,11 +3,13 @@
     <div class="network-card-wrapper">
       <div class="icon-field">
         <div class="icon-base">
-          <fa :icon="showIcon" class="fa-2x" />
+          <img src="@/assets/images/icons/speedometer.svg" alt="" />
         </div>
       </div>
       <div class="content-field">
-        <p class="data-text">{{ dataText }}</p>
+        <p class="data-text">
+          {{ Number(averageDifficulty).toLocaleString() }}
+        </p>
         <p class="title-text">{{ titleText }}</p>
       </div>
     </div>
@@ -22,7 +24,7 @@ import { gql } from "@apollo/client";
 export default {
   name: "AverageBlockDifficulty",
   setup() {
-    const showIcon = "tachometer-alt";
+    const showIcon = "./assets/images/icons/speedometer.svg";
     const titleText = "Average Block Difficulty";
 
     // Query set amount of block difficulty and use to create an average
@@ -30,7 +32,7 @@ export default {
       query averageDifficulty {
         chainQuery {
           blockQuery {
-            blocks(limit: 20, desc: true) {
+            blocks(limit: 4, desc: true) {
               difficulty
             }
           }
@@ -39,29 +41,19 @@ export default {
     `;
 
     const { result, loading, error } = useQuery(query);
-    const blocks = useResult(
+    const blockList = useResult(
       result,
       null,
-      (data) => data.chainQuery.blockQuery.blocks
+      (data) => data.chainQuery.blockQuery.blocks[1].difficulty
     );
-    // const blocks = result.value;
 
     console.log(result);
-    console.log(blocks);
 
-    const AverageBlockDiffictulty = computed(() => {
-      if (this.blocks.length === 0) {
-        return 0;
-      }
-      return (
-        this.blocks.difficulty.reduce((sum, v) => sum + v.score, 0) / this.blocks.length
-      );
+    const averageDifficulty = computed(() => {
+      return blockList.value;
     });
 
-    console.log(AverageBlockDiffictulty);
-    // const dataText = "hi";
-
-    return { showIcon, titleText, loading, error };
+    return { showIcon, titleText, averageDifficulty, loading, error };
   },
 };
 </script>
@@ -136,6 +128,13 @@ export default {
 
 .icon-base {
   color: $grayscale-off-white;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 0;
 }
 
 .content-field {

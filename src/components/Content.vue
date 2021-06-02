@@ -1,21 +1,23 @@
 <template>
   <div id="contentWrapper">
     <div id="content">
-      <transition name="slide">
-        <router-view />
-      </transition>
+      <router-view v-slot="{ Component }">
+        <transition name="slide">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </div>
-    <!-- <CharacterPeek /> -->
+    <CharacterPeek />
   </div>
 </template>
 
 <script>
-// import CharacterPeek from "@/components/CharacterPeek.vue";
+import CharacterPeek from "@/components/CharacterPeek.vue";
 
 export default {
   name: "Content",
   components: {
-    // CharacterPeek,
+    CharacterPeek,
   },
 };
 </script>
@@ -32,7 +34,7 @@ export default {
   align-items: stretch;
   gap: 0;
   background-color: rgba(26, 28, 44, 0.7);
-  padding: 0 16px 0 16px;
+  padding: 24px 16px 16px 16px;
 }
 #content {
   align-self: stretch;
@@ -42,7 +44,7 @@ export default {
   justify-content: flex-start;
   align-items: stretch;
   gap: 0;
-  padding: 24px 0 16px 0;
+  padding: 0;
 }
 
 // // Transitions
@@ -51,24 +53,20 @@ export default {
 //   transition: all 1s ease-out;
 // }
 
-
 // .slide-enter-to {
 //   position: absolute;
 //   top: 0;
 // }
-
 
 // .slide-enter-from {
 //   position: absolute;
 //   top: -100%;
 // }
 
-
 // .slide-leave-to {
 //   position: absolute;
 //   bottom: -100%;
 // }
-
 
 // .slide-leave-from {
 //   position: absolute;

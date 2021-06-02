@@ -64,6 +64,7 @@ Open Browser: http://localhost:8080
 1. Download source
 2. Open project folder in Visual Studio Code
 3. Reopen project in dev container _(lower left corner, after extension has been installed)_
+4. Open terminal and run: yarn serve
 
 **Wait ~10 mins for node to be fully operational, then open the browser preview and begin coding**
 

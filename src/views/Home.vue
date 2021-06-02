@@ -45,10 +45,16 @@
     <!-- Network Cards -->
     <div class="network-cards">
       <div class="row-frame">
-        <!-- <AverageBlockDifficulty /> -->
+        <AverageBlockDifficulty />
+        <AverageBlockTime />
+        <DailyTransactions />
+        <ActivePlayerAddresses />
       </div>
       <div class="row-frame">
-
+        <TotalNCGCreated />
+        <TotalBlocks />
+        <TotalTransactions />
+        <TotalPlayerAddresses />
       </div>
     </div>
   </div>
@@ -58,7 +64,14 @@
 import NewsArticle from "@/components/home/NewsArticle.vue";
 import PvPLeaderboard from "@/components/home/PvPLeaderboard.vue";
 import XPLeaderboard from "@/components/home/XPLeaderboard.vue";
-// import AverageBlockDifficulty from "@/components/home/networkCards/AverageBlockDifficulty.vue";
+import AverageBlockDifficulty from "@/components/home/networkCards/AverageBlockDifficulty.vue";
+import AverageBlockTime from "@/components/home/networkCards/AverageBlockTime.vue";
+import DailyTransactions from "@/components/home/networkCards/DailyTransactions.vue";
+import ActivePlayerAddresses from "@/components/home/networkCards/ActivePlayerAddresses.vue";
+import TotalNCGCreated from "@/components/home/networkCards/TotalNCGCreated.vue";
+import TotalBlocks from "@/components/home/networkCards/TotalBlocks.vue";
+import TotalTransactions from "@/components/home/networkCards/TotalTransactions.vue";
+import TotalPlayerAddresses from "@/components/home/networkCards/TotalPlayerAddresses.vue";
 
 export default {
   name: "Home",
@@ -66,7 +79,14 @@ export default {
     NewsArticle,
     PvPLeaderboard,
     XPLeaderboard,
-    // AverageBlockDifficulty,
+    AverageBlockDifficulty,
+    AverageBlockTime,
+    DailyTransactions,
+    ActivePlayerAddresses,
+    TotalNCGCreated,
+    TotalBlocks,
+    TotalTransactions,
+    TotalPlayerAddresses,
   },
 };
 </script>
@@ -82,7 +102,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  gap: 24px;
+  gap: 20px;
   margin: 0 auto;
 }
 
@@ -95,7 +115,6 @@ export default {
   align-items: stretch;
   gap: 0;
   padding: 0;
-  // background-color: green;
 }
 
 .leaderboards {
@@ -105,9 +124,8 @@ export default {
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
-  gap: 24px;
+  gap: 20px;
   padding: 0;
-  // background-color: green;
 }
 
 .network-cards {
@@ -117,9 +135,10 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  gap: 24px;
-  padding: 0;
-  // background-color: green;
+  gap: 20px;
+  // padding: 20px;
+  // border-radius: 9px;
+  // background-color: $dark-button-component;
 }
 
 .row-frame {
@@ -130,8 +149,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
-  gap: 24px;
+  gap: 20px;
   padding: 0;
-  // background-color: #ff5050;
 }
 </style>

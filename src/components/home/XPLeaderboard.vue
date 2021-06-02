@@ -12,21 +12,21 @@
     </div>
     <div class="line-field"><div class="line"></div></div>
     <div class="entries-field">
-      <div v-if="loading">Loading...</div>
+      <div v-if="loading" class="loading">Loading...</div>
 
-      <div v-else-if="error">Error: {{ error.message }}</div>
+      <div v-else-if="error" class="error">Oops: {{ error.message }}</div>
       <span v-else-if="accounts">
         <div
           class="entries-list"
-          v-for="(account, key) in filteredAccounts"
+          v-for="(account, index) in filteredAccounts"
           :value="account.agentAddress"
-          :key="key++"
+          :key="index++"
         >
           <LeaderboardEntry
             :accountPublicID="account.agentAddress"
             :accountCharacter="account.avatarName"
             accountCharacterImg="default"
-            :accountRank="key"
+            :accountRank="index"
             :accountXP="account.exp"
           />
         </div>
@@ -54,9 +54,10 @@ export default {
             address
             rankingInfos {
               agentAddress
-              avatarName
               avatarAddress
+              avatarName
               exp
+              updatedAt
             }
           }
         }
@@ -216,5 +217,19 @@ export default {
   align-items: center;
   flex: 0;
   align-self: stretch;
+}
+
+.loading,
+.error {
+  flex-grow: 0;
+  font-family: Aller;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
 }
 </style>

@@ -39,17 +39,17 @@
             <img
               alt="NCG"
               class="icon-coin"
-              src="@/assets/images/ncg-coin.png"
+              src="@/assets/images/icons/ncg-coin.png"
             />
             <p class="subtext">{{ ncgAmount }} NCG</p>
           </div>
           <div class="ncg-actions">
-            <!-- <button class="ncgButton">
+            <button class="ncgButton">
               <p class="subtext">Buy</p>
             </button>
             <button class="ncgButton">
               <p class="subtext">Sell</p>
-            </button> -->
+            </button>
             <button class="ncgButton">
               <p class="subtext">Transfer</p>
             </button>
@@ -92,13 +92,13 @@ import { gql } from "@apollo/client";
 export default {
   name: "Header",
   setup() {
-    const publicID = ref("0xf5eB9FCbe5D2A658A87b517511f14698ADd28Efa");
+    const publicID = ref("0x39533a6914457a25b0Aa75a63fd0B6F95E2d0843");
     // const ncgAmount = ref("10,504");
     const notifyCount = ref("21");
-    
+
     const AccountData = gql`
       query checkNCGBalance {
-        goldBalance(address: "0xf5eB9FCbe5D2A658A87b517511f14698ADd28Efa")
+        goldBalance(address: "0x39533a6914457a25b0Aa75a63fd0B6F95E2d0843")
       }
     `;
 

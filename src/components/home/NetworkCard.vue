@@ -96,6 +96,13 @@ export default {
 
 .icon-base {
   color: $grayscale-off-white;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 0;
 }
 
 .content-field {

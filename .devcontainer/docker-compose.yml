@@ -1,13 +1,13 @@
 version: '3'
 
 services:
-  swarmManager:
+  swarm-manager:
     image: cryptokasm/9c-swarm-manager:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - DEBUG=1
-      - TRACE=1
+      - TRACE=0
       - DEV_MODE=true
       - PRIVATE_KEY=DEMO
   app:
