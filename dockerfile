@@ -4,12 +4,19 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install packages
 RUN apt update
-RUN apt install apache2 -y
+RUN apt install curl unzip apache2 -y
 RUN apt install apache2-utils -y
 RUN apt clean
 
-# Open Port 80 for webserver
+# Install Ngrok2
+RUN curl -s -O https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip \
+    && unzip ngrok-stable-linux-amd64.zip \
+    && mv ngrok /usr/local/bin/ \
+    && rm -f ngrok-stable-linux-amd64.zip
+
+# Open ports for webserver
 EXPOSE 80
+EXPOSE 4040
 
 # Start service
 CMD ["apache2ctl", "-D", "FOREGROUND"]

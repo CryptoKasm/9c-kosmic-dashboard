@@ -17,8 +17,14 @@ function startPreview() {
     docker-compose build
     docker-compose up -d
 }
+
+# function checkInstall() {
+#     # Function to check if node_modules exists, if not run yarn install
+# }
+
 #############################
 function mainBuild() {
+    yarn install
     buildDist
     startPreview
 }
