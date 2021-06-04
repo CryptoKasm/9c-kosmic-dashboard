@@ -36,11 +36,6 @@ Our team currently consists of 2 active members. We are looking to expand our te
 
 ## <span style="color:#33F3FF">Team Repositories</span>
 - Dashboard: https://github.com/CryptoKasm/9c-kosmic-dashboard\
-    - Home: https://github.com/CryptoKasm/kosmic-module-home\
-    - Explorer: https://github.com/CryptoKasm/kosmic-module-explorer\
-    - Character: https://github.com/CryptoKasm/kosmic-module-character\
-    - Shop: https://github.com/CryptoKasm/kosmic-module-shop\
-    - Node: https://github.com/CryptoKasm/kosmic-module-node\
 
 <br>
 
